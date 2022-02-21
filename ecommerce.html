@@ -19,18 +19,19 @@
   	width: 450px;
     font-size: 0.9em; 	
   }
-  tr img{width: 80px;
-         height: 70px;
-         padding-left: 20px;
+ 
+ tr img{width: 100%;
+         height: 200px;
+         
+         border-radius: 5px 5px 0 0;
   }
+
   #explaintxt {
     font-size: 0.95em;
-  }
-  tr:nth-of-type(odd) { background-color: #D1B48C;
+    color: #3a3a3a;
   }
 
   </style>
-
 </head>
 
 
@@ -38,20 +39,29 @@
 
 <div id="wrapper">
   <header>
-    <h1><img src="image/wrapper.jpg" width= 100% height="150" alt="Our New E-shop"></h1>
+    <h1><img src="image/wrapper.jpg" width="100%" height="150" alt="Our New E-shop"></h1>
   </header>
 
 
   <div id="leftcolumn">
   <nav>
    <form method="get" action="ecommercequery">
-    <b>Choose an product:</b>
+   
     <ul>
-    <li><input type="checkbox" name="product" value="Book" />Book</li>
-    <li><input type="checkbox" name="product" value="Desk" />Desk</li>
-    <li><input type="checkbox" name="product" value="Chair" />Chair</li>
+    <b>ACRYLIC</b>
+    <li><input type="radio" name="acrylic" value="AcrylicInk" />ink</li>  
+    <b>OIL</b>  
+    <li><input type="radio" name="oil" value="OilPaint" />paint</li>   
+    <b>WATERCOLOR</b>    
+    <li><input type="radio" name="watercolor" value="WatercolorInk" />ink</li>
+
+    <b>Brand</b>    
+    <li><input type="radio" name="brand" value="HOLBEIN" />HOLBEIN</li>
+    <li><input type="radio" name="brand" value="SCHMINCKE" />SCHMINCKE</li>
+
     <li><input type="submit" value="Search" /></li>
     </ul>
+
    </form>
   </nav>	
   </div>
@@ -64,14 +74,97 @@
       
 	<div id="righttxt">
 
-	<table>
+  <table>
+    <tr>
+      <td>
+        <div class="card">
+        <img src="image/acrylic/ink/holbein_1.jpg" alt="acrylic_ink_1" >
+        <div class="container">
+        <h4><b>HOLBEIN</b></h4> 
+        <p id="explaintxt">Artist Acrylic Ink 100ml Colorless</p> 
+    
+        </div>
+        </div>
+      </td>
+      <td>
+        <div class="card">
+        <img src="image/acrylic/ink/holbein_2.jpg" alt="acrylic_ink_2" >
+        <div class="container">
+        <h4><b>HOLBEIN</b></h4> 
+        <p id="explaintxt">Artist Acrylic Ink 100ml Colorless</p> 
+        </div>
+        </div>
+      </td>
+      <td>
+        <div class="card">
+        <img src="image/acrylic/ink/schmincke_3.jpg" alt="acrylic_ink_3" >
+        <div class="container">
+        <h4><b>SCHMINCKE</b></h4> 
+        <p id="explaintxt">Aero Color Acrylic Ink 28ml Aero Metallic Brilliant Gold</p> 
+        </div>
+        </div>
+      </td>
+      <td>
+        <div class="card">
+        <img src="image/acrylic/ink/schmincke_4.jpg" alt="acrylic_ink_4" >
+        <div class="container">
+        <h4><b>SCHMINCKE</b></h4> 
+        <p id="explaintxt">Aero Color Acrylic Ink 28ml Aero Metallic Brilliant Bronze</p> 
+        </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div class="card">
+        <img src="image/oil/paint/holbein_1.jpg" alt="oil_paint_1" >
+        <div class="container">
+        <h4><b>HOLBEIN</b></h4> 
+        <p id="explaintxt">Duo Water-Mixable Oil 10ml Compact Set x 10</p> 
+        </div>
+        </div>
+      </td>
+      <td>
+        <div class="card">
+        <img src="image/oil/paint/holbein_2.jpg" alt="oil_paint_2" >
+        <div class="container">
+        <h4><b>HOLBEIN</b></h4> 
+        <p id="explaintxt">Duo Water-Mixable Oil 10ml Starter Set x 12</p> 
+        </div>
+        </div>
+      </td>
+      <td>
+        <div class="card">
+        <img src="image/oil/paint/holbein_3.jpg" alt="oil_paint_3" >
+        <div class="container">
+        <h4><b>HOLBEIN</b></h4> 
+        <p id="explaintxt">Duo Water-Mixable Oil 15ml Basic Set x 12</p> 
+        </div>
+        </div>
+      </td>
+      <td>
+        <div class="card">
+        <img src="image/oil/paint/holbein_4.jpg" alt="oil_paint_4" >
+        <div class="container">
+        <h4><b>HOLBEIN</b></h4> 
+        <p id="explaintxt">Duo Water-Mixable Oil 20ml Set x 12</p> 
+        </div>
+        </div>
+      </td>
+    </tr>
+
+
+  </table>
+
+	<!-- <table>
 		<tr>
 			<td colspan="2"><strong>JANUARY</strong></td>
 		</tr>
 
 		<tr>
 			<td id="leftcol"><img src="JJ.jpg" alt="JJ" ></td>
-      <!-- https://www.zaobao.com.sg/realtime/singapore/story20200101-1017654 -->
+
 			<td id="rightcol"><p>Hear Jiangnan form JJ Lin, one of the most famous singer in Singapore.<br>
 							CDs are now available.</p>
               <audio controls>
@@ -85,7 +178,7 @@
     	</tr>
     	<tr>
       		<td id="leftcol"><img src="Jaychou.jpg" alt="Jaychou"></td>
-      <!-- https://post.smzdm.com/p/apzkmo40/ -->
+     
       		<td id="rightcol"><p>Hear Love Confession form Jay Chou, one of the most famous singer in China.<br>
               CDs are now available.</p>
               <audio controls>
@@ -93,15 +186,13 @@
               </audio>
             </td>
     	</tr>	
-	</table>
+	</table>-->
+
 	</div>
   </div>
 </div>
 
 
- 
 </body>
-
-
 
 </html>
