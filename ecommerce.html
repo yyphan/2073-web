@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Yet Another E-shop</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="color.css">
+
+  <style>
+  
+  #righttxt{
+  margin:30px 0 0 30px;
+  color: #792A1F;
+  }
+  
+  #leftcolumn,#rightcolumn {height: 800px; }
+ 	
+  #rightcol {
+  	padding-left: 40px;
+  	width: 450px;
+    font-size: 0.9em; 	
+  }
+  tr img{width: 80px;
+         height: 70px;
+         padding-left: 20px;
+  }
+  #explaintxt {
+    font-size: 0.95em;
+  }
+  tr:nth-of-type(odd) { background-color: #D1B48C;
+  }
+
+  </style>
+
+</head>
+
+
+<body>
+
+<div id="wrapper">
+  <header>
+    <h1><img src="wrapper_1.jpg" width= 100% height="150" alt="Our New E-shop"></h1>
+  </header>
+
+
+  <div id="leftcolumn">
+  <nav>
+   <form method="get" action="ecommercequery">
+    <b>Choose an product:</b>
+    <ul>
+    <li><input type="checkbox" name="product" value="Book" />Book</li>
+    <li><input type="checkbox" name="product" value="Desk" />Desk</li>
+    <li><input type="checkbox" name="product" value="Chair" />Chair</li>
+    <li><input type="submit" value="Search" /></li>
+    </ul>
+   </form>
+  </nav>	
+  </div>
+
+
+  <div id="rightcolumn">
+    <div class="content"> 
+      <h2>WELCOME TO OUR SHOP</h2>
+      <p id="explaintxt">The first Friday night each month at JavaJam is a special night.Join us from 8pm to 11pm for some music you won't want to miss.</p>
+      
+	<div id="righttxt">
+
+	<table>
+		<tr>
+			<td colspan="2"><strong>JANUARY</strong></td>
+		</tr>
+
+		<tr>
+			<td id="leftcol"><img src="JJ.jpg" alt="JJ" ></td>
+      <!-- https://www.zaobao.com.sg/realtime/singapore/story20200101-1017654 -->
+			<td id="rightcol"><p>Hear Jiangnan form JJ Lin, one of the most famous singer in Singapore.<br>
+							CDs are now available.</p>
+              <audio controls>
+                 <source src="JJ_Lin_Jiang_Nan.mp3" type="audio/mpeg">
+              </audio>
+            </td>
+		</tr>
+
+        <tr>
+            <td colspan="2"><strong>FEBRUARY</strong></td>
+    	</tr>
+    	<tr>
+      		<td id="leftcol"><img src="Jaychou.jpg" alt="Jaychou"></td>
+      <!-- https://post.smzdm.com/p/apzkmo40/ -->
+      		<td id="rightcol"><p>Hear Love Confession form Jay Chou, one of the most famous singer in China.<br>
+              CDs are now available.</p>
+              <audio controls>
+                  <source src="Jay_Chou_Love_confession.mp3" type="audio/mpeg">
+              </audio>
+            </td>
+    	</tr>	
+	</table>
+	</div>
+  </div>
+</div>
+
+
+ 
+</body>
+
+
+
+</html>
