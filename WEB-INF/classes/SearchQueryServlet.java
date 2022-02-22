@@ -40,6 +40,31 @@ public class SearchQueryServlet extends HttpServlet {
 
          //Execute a SQL SELECT query
          String sqlStr = "SELECT * FROM products";
+
+         String categoryParam = request.getParameter("category");
+         if (categoryParam != null)
+         { 
+            String category = categoryParam.split("-", 2)[0];
+            String type = categoryParam.split("-", 2)[1];
+            sqlStr += " WHERE category = '" + category +  "'" +
+               "AND type = '" + type + "'";
+         }
+
+         String brandParam = request.getParameter("brand");
+         if (brandParam != null)
+         {
+            if (categoryParam == null) 
+            {
+               sqlStr += " WHERE";
+            }
+            else 
+            {
+               sqlStr += " AND";
+            }
+
+            sqlStr += " brand = '" + brandParam + "'";
+         }
+         
          ResultSet rset = stmt.executeQuery(sqlStr);  // Send the query to the server
 
          // Print the cards (middle of the right column)
@@ -54,7 +79,7 @@ public class SearchQueryServlet extends HttpServlet {
                out.println("<tr>");
             }
             // Print a card <p>...</p> for each record
-            PrintCards(out, image_src, brand, description, price);
+            PrintCard(out, image_src, brand, description, price);
             if (count % 4 == 3) // print <tr/>
             {
                out.println("</tr>");
@@ -102,11 +127,11 @@ public class SearchQueryServlet extends HttpServlet {
          out.println("<form method='post' action='ecommercequery'>");
             out.println("<ul>");
             out.println("<b>ACRYLIC</b>");
-            out.println("<li><input type='radio' name='acrylic' value='AcrylicInk' />ink</li>  ");
+            out.println("<li><input type='radio' name='category' value='Acrylic-Ink' />ink</li>  ");
             out.println("<b>OIL</b>  ");
-            out.println("<li><input type='radio' name='oil' value='OilPaint' />paint</li>   ");
+            out.println("<li><input type='radio' name='category' value='Oil-Paint' />paint</li>   ");
             out.println("<b>WATERCOLOR</b>    ");
-            out.println("<li><input type='radio' name='watercolor' value='WatercolorInk' />ink</li>");
+            out.println("<li><input type='radio' name='category' value='Watercolor-Ink' />ink</li>");
             out.println("<b>Brand</b>    ");
             out.println("<li><input type='radio' name='brand' value='HOLBEIN' />HOLBEIN</li>");
             out.println("<li><input type='radio' name='brand' value='SCHMINCKE' />SCHMINCKE</li>");
@@ -118,7 +143,7 @@ public class SearchQueryServlet extends HttpServlet {
       out.println("</div>");
    }
 
-   private void PrintCards(PrintWriter out, String image_src, String brand, String description, float price)
+   private void PrintCard(PrintWriter out, String image_src, String brand, String description, float price)
    {
       out.println("<td>");
       out.println("<div class='card'>");
