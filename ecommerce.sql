@@ -7,7 +7,7 @@ drop table if exists products;
 create table products (
    id int,
    brand varchar(50),
-   description varchar(50),
+   description varchar(150),
    category varchar(50),
    type varchar(50),
    price float,

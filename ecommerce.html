@@ -1,198 +1,137 @@
 <!DOCTYPE html>
 <html>
+
+
 <head>
   <title>Yet Another E-shop</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="color.css">
-
-  <style>
-  
-  #righttxt{
-  margin:30px 0 0 30px;
-  color: #792A1F;
-  }
-  
-  #leftcolumn,#rightcolumn {height: 800px; }
- 	
-  #rightcol {
-  	padding-left: 40px;
-  	width: 450px;
-    font-size: 0.9em; 	
-  }
- 
- tr img{width: 100%;
-         height: 200px;
-         
-         border-radius: 5px 5px 0 0;
-  }
-
-  #explaintxt {
-    font-size: 0.95em;
-    color: #3a3a3a;
-  }
-
-  </style>
+  <link rel="stylesheet" href="ecommerce.css">
 </head>
 
 
 <body>
-
 <div id="wrapper">
   <header>
     <h1><img src="image/wrapper.jpg" width="100%" height="150" alt="Our New E-shop"></h1>
   </header>
 
-
   <div id="leftcolumn">
-  <nav>
-   <form method="get" action="ecommercequery">
-   
-    <ul>
-    <b>ACRYLIC</b>
-    <li><input type="radio" name="acrylic" value="AcrylicInk" />ink</li>  
-    <b>OIL</b>  
-    <li><input type="radio" name="oil" value="OilPaint" />paint</li>   
-    <b>WATERCOLOR</b>    
-    <li><input type="radio" name="watercolor" value="WatercolorInk" />ink</li>
+    <nav>
+    <form method="get" action="ecommercequery">
+    
+      <ul>
+      <b>ACRYLIC</b>
+      <li><input type="radio" name="acrylic" value="AcrylicInk" />ink</li>  
+      <b>OIL</b>  
+      <li><input type="radio" name="oil" value="OilPaint" />paint</li>   
+      <b>WATERCOLOR</b>    
+      <li><input type="radio" name="watercolor" value="WatercolorInk" />ink</li>
 
-    <b>Brand</b>    
-    <li><input type="radio" name="brand" value="HOLBEIN" />HOLBEIN</li>
-    <li><input type="radio" name="brand" value="SCHMINCKE" />SCHMINCKE</li>
+      <b>Brand</b>    
+      <li><input type="radio" name="brand" value="HOLBEIN" />HOLBEIN</li>
+      <li><input type="radio" name="brand" value="SCHMINCKE" />SCHMINCKE</li>
 
-    <li><input type="submit" value="Search" /></li>
-    </ul>
+      <li><input type="submit" value="Search" /></li>
+      <li><input type="reset" /></li>
+      </ul>
 
-   </form>
-  </nav>	
+    </form>
+    </nav>	
   </div>
 
 
   <div id="rightcolumn">
     <div class="content"> 
       <h2>WELCOME TO OUR SHOP</h2>
-      <p id="explaintxt">The first Friday night each month at JavaJam is a special night.Join us from 8pm to 11pm for some music you won't want to miss.</p>
-      
-	<div id="righttxt">
-
-  <table>
-    <tr>
-      <td>
-        <div class="card">
-        <img src="image/acrylic/ink/holbein_1.jpg" alt="acrylic_ink_1" >
-        <div class="container">
-        <h4><b>HOLBEIN</b></h4> 
-        <p id="explaintxt">Artist Acrylic Ink 100ml Colorless</p> 
-    
-        </div>
-        </div>
-      </td>
-      <td>
-        <div class="card">
-        <img src="image/acrylic/ink/holbein_2.jpg" alt="acrylic_ink_2" >
-        <div class="container">
-        <h4><b>HOLBEIN</b></h4> 
-        <p id="explaintxt">Artist Acrylic Ink 100ml Colorless</p> 
-        </div>
-        </div>
-      </td>
-      <td>
-        <div class="card">
-        <img src="image/acrylic/ink/schmincke_3.jpg" alt="acrylic_ink_3" >
-        <div class="container">
-        <h4><b>SCHMINCKE</b></h4> 
-        <p id="explaintxt">Aero Color Acrylic Ink 28ml Aero Metallic Brilliant Gold</p> 
-        </div>
-        </div>
-      </td>
-      <td>
-        <div class="card">
-        <img src="image/acrylic/ink/schmincke_4.jpg" alt="acrylic_ink_4" >
-        <div class="container">
-        <h4><b>SCHMINCKE</b></h4> 
-        <p id="explaintxt">Aero Color Acrylic Ink 28ml Aero Metallic Brilliant Bronze</p> 
-        </div>
-        </div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <div class="card">
-        <img src="image/oil/paint/holbein_1.jpg" alt="oil_paint_1" >
-        <div class="container">
-        <h4><b>HOLBEIN</b></h4> 
-        <p id="explaintxt">Duo Water-Mixable Oil 10ml Compact Set x 10</p> 
-        </div>
-        </div>
-      </td>
-      <td>
-        <div class="card">
-        <img src="image/oil/paint/holbein_2.jpg" alt="oil_paint_2" >
-        <div class="container">
-        <h4><b>HOLBEIN</b></h4> 
-        <p id="explaintxt">Duo Water-Mixable Oil 10ml Starter Set x 12</p> 
-        </div>
-        </div>
-      </td>
-      <td>
-        <div class="card">
-        <img src="image/oil/paint/holbein_3.jpg" alt="oil_paint_3" >
-        <div class="container">
-        <h4><b>HOLBEIN</b></h4> 
-        <p id="explaintxt">Duo Water-Mixable Oil 15ml Basic Set x 12</p> 
-        </div>
-        </div>
-      </td>
-      <td>
-        <div class="card">
-        <img src="image/oil/paint/holbein_4.jpg" alt="oil_paint_4" >
-        <div class="container">
-        <h4><b>HOLBEIN</b></h4> 
-        <p id="explaintxt">Duo Water-Mixable Oil 20ml Set x 12</p> 
-        </div>
-        </div>
-      </td>
-    </tr>
-
-
-  </table>
-
-	<!-- <table>
-		<tr>
-			<td colspan="2"><strong>JANUARY</strong></td>
-		</tr>
-
-		<tr>
-			<td id="leftcol"><img src="JJ.jpg" alt="JJ" ></td>
-
-			<td id="rightcol"><p>Hear Jiangnan form JJ Lin, one of the most famous singer in Singapore.<br>
-							CDs are now available.</p>
-              <audio controls>
-                 <source src="JJ_Lin_Jiang_Nan.mp3" type="audio/mpeg">
-              </audio>
-            </td>
-		</tr>
+      <p id="explaintxt">The first Friday night each month at JavaJam is a special night.
+        Join us from 8pm to 11pm for some music you won't want to miss.</p>
+    </div>
+    <div id="righttxt">
+      <table>
+        <tr>
+          <td>
+            <div class="card">
+            <img src="image/acrylic/ink/holbein_1.jpg" alt="acrylic_ink_1" >
+            <div class="container">
+            <h4><b>HOLBEIN</b></h4> 
+            <p id="explaintxt">Artist Acrylic Ink 100ml Colorless</p> 
+        
+            </div>
+            </div>
+          </td>
+          <td>
+            <div class="card">
+            <img src="image/acrylic/ink/holbein_2.jpg" alt="acrylic_ink_2" >
+            <div class="container">
+            <h4><b>HOLBEIN</b></h4> 
+            <p id="explaintxt">Artist Acrylic Ink 100ml Colorless</p> 
+            </div>
+            </div>
+          </td>
+          <td>
+            <div class="card">
+            <img src="image/acrylic/ink/schmincke_3.jpg" alt="acrylic_ink_3" >
+            <div class="container">
+            <h4><b>SCHMINCKE</b></h4> 
+            <p id="explaintxt">Aero Color Acrylic Ink 28ml Aero Metallic Brilliant Gold</p> 
+            </div>
+            </div>
+          </td>
+          <td>
+            <div class="card">
+            <img src="image/acrylic/ink/schmincke_4.jpg" alt="acrylic_ink_4" >
+            <div class="container">
+            <h4><b>SCHMINCKE</b></h4> 
+            <p id="explaintxt">Aero Color Acrylic Ink 28ml Aero Metallic Brilliant Bronze</p> 
+            </div>
+            </div>
+          </td>
+        </tr>
 
         <tr>
-            <td colspan="2"><strong>FEBRUARY</strong></td>
-    	</tr>
-    	<tr>
-      		<td id="leftcol"><img src="Jaychou.jpg" alt="Jaychou"></td>
-     
-      		<td id="rightcol"><p>Hear Love Confession form Jay Chou, one of the most famous singer in China.<br>
-              CDs are now available.</p>
-              <audio controls>
-                  <source src="Jay_Chou_Love_confession.mp3" type="audio/mpeg">
-              </audio>
-            </td>
-    	</tr>	
-	</table>-->
-
-	</div>
+          <td>
+            <div class="card">
+            <img src="image/oil/paint/holbein_1.jpg" alt="oil_paint_1" >
+            <div class="container">
+            <h4><b>HOLBEIN</b></h4> 
+            <p id="explaintxt">Duo Water-Mixable Oil 10ml Compact Set x 10</p> 
+            </div>
+            </div>
+          </td>
+          <td>
+            <div class="card">
+            <img src="image/oil/paint/holbein_2.jpg" alt="oil_paint_2" >
+            <div class="container">
+            <h4><b>HOLBEIN</b></h4> 
+            <p id="explaintxt">Duo Water-Mixable Oil 10ml Starter Set x 12</p> 
+            </div>
+            </div>
+          </td>
+          <td>
+            <div class="card">
+            <img src="image/oil/paint/holbein_3.jpg" alt="oil_paint_3" >
+            <div class="container">
+            <h4><b>HOLBEIN</b></h4> 
+            <p id="explaintxt">Duo Water-Mixable Oil 15ml Basic Set x 12</p> 
+            </div>
+            </div>
+          </td>
+          <td>
+            <div class="card">
+            <img src="image/oil/paint/holbein_4.jpg" alt="oil_paint_4" >
+            <div class="container">
+            <h4><b>HOLBEIN</b></h4> 
+            <p id="explaintxt">Duo Water-Mixable Oil 20ml Set x 12</p> 
+            </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>
-
-
 </body>
+
 
 </html>
