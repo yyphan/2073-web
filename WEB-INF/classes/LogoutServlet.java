@@ -8,9 +8,11 @@ import jakarta.servlet.annotation.*;
 public class LogoutServlet extends HttpServlet {  
     protected void doGet(HttpServletRequest request, HttpServletResponse response)  
                             throws ServletException, IOException {  
+        // invalidate the session
         HttpSession session=request.getSession();  
         session.invalidate();  
 
+        // return to home page
         request.getRequestDispatcher("ecommercequery").forward(request, response);
     }  
 }  

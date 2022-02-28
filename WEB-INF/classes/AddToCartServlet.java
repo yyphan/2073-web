@@ -8,9 +8,9 @@ public class AddToCartServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
                throws ServletException, IOException {
-        PrintWriter out=response.getWriter();
         String product_id = request.getParameter("product_id");
-          
+        
+        // Add the product to the cart using session
         HttpSession session=request.getSession(false);  
         if(session!=null){ 
             // data is like [1001, 2]: 2 of product with id 1001 were added in cart
@@ -23,7 +23,6 @@ public class AddToCartServlet extends HttpServlet {
                 // add the product if not added in cart
                 session.setAttribute(product_id, 1);
             }
-        } 
-        out.close();  
+        }  
     }
 }

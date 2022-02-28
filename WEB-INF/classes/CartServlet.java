@@ -12,7 +12,7 @@ public class CartServlet extends HttpServlet {
         PrintWriter out=response.getWriter();
           
         HttpSession session=request.getSession(false);  
-        if(session==null){  
+        if(session==null){  // if not logged in
             out.print("Please login first");  
             request.getRequestDispatcher("login.html").include(request, response); 
         }  
@@ -21,6 +21,7 @@ public class CartServlet extends HttpServlet {
             out.println("<p><a href='ecommercequery'>Home</a></p><hr>"); 
             out.print("Hello, " + name + ". Welcome to Your Cart");  
 
+            // display all added products in a table
             try (
                 Connection conn = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/newecommerce?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC",
@@ -49,7 +50,7 @@ public class CartServlet extends HttpServlet {
                         float singlePrice = rset.getFloat("price");
                         int count = ((Integer)session.getAttribute(idStr)).intValue();
                         float totalPrice = singlePrice * count;
-                        // display the item
+                        // display the product
                         out.println("<tr>");
                         out.println("<td>" + description + "</td>");
                         out.println("<td>" + count + "</td>");

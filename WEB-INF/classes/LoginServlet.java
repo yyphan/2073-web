@@ -22,28 +22,34 @@ public class LoginServlet extends HttpServlet {
             String email=request.getParameter("email");  
             String password=request.getParameter("password");  
 
+            // find the user with the given email
             String sqlStr = "SELECT * FROM users WHERE email='" + email + "';";
             ResultSet rset = stmt.executeQuery(sqlStr);
 
+            // if no user was registered in that email
             if (!rset.next())
             {
+                // this function is used many times. It is used to insert a piece of html code.
                 request.getRequestDispatcher("login.html").include(request, response);  
                 throw new Exception("Sorry, email does not exist. Please sign up or check again.");
             }
-            else
+            else // the user has been found
             {
                 String passwordInDB = rset.getString("password");
                 String name = rset.getString("name");
                 int user_id = rset.getInt("id");
+                // check password matches
                 if (password.equals(passwordInDB))
                 {
                     HttpSession session=request.getSession();  
                     session.setAttribute("name",name); 
                     session.setAttribute("user_id",user_id); 
+                    // this function is used many times. It is used to insert a piece of html code.
                     request.getRequestDispatcher("ecommercequery").forward(request, response);
                 }
                 else
                 {
+                    // this function is used many times. It is used to insert a piece of html code.
                     request.getRequestDispatcher("login.html").include(request, response);  
                     throw new Exception("Sorry, password incorrect. Please try again.");
                 }

@@ -1,6 +1,6 @@
 import java.io.*;
 import java.sql.*;
-import jakarta.servlet.*;            // Tomcat 10
+import jakarta.servlet.*;           
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
@@ -24,13 +24,16 @@ public class SignupServlet extends HttpServlet {
             String name = request.getParameter("name");
             String password = request.getParameter("password");
 
+            // check if email's already been registered
             ResultSet rset = stmt.executeQuery("SELECT * FROM users WHERE email='" + email + "';");
             if (rset.next()) {
                 throw new Exception("Email exists");
             }
 
+            // check all fields are filled
             if (email == "" || name == "" || password == "") throw new Exception("All fields must be filled");
 
+            // write the new user into database
             String sqlStr = "INSERT INTO users (email, name, password) VALUES ('" 
                 + email + "', '" 
                 + name + "', '" 
@@ -43,6 +46,7 @@ public class SignupServlet extends HttpServlet {
             out.print("<a href='login.html'>Login</a>"); 
             out.print("<hr>");
         } catch (Exception ex) {
+            // this function is used many times. It is used to insert a piece of html code.
             request.getRequestDispatcher("signup.html").include(request, response); 
             out.println("<p>Error: " + ex.getMessage() + "</p>");
             ex.printStackTrace();

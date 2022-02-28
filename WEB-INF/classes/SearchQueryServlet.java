@@ -1,25 +1,23 @@
 import java.io.*;
 import java.sql.*;
-import jakarta.servlet.*;            // Tomcat 10
+import jakarta.servlet.*; 
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-@WebServlet("/ecommercequery")   // Configure the request URL for this servlet (Tomcat 7/Servlet 3.0 upwards)
+@WebServlet("/ecommercequery")
 public class SearchQueryServlet extends HttpServlet {
 
-   // The doGet() runs once per HTTP GET request to this servlet.
    @Override
    public void doGet(HttpServletRequest request, HttpServletResponse response)
                throws ServletException, IOException {
-      // Set the MIME type for the response message
       response.setContentType("text/html");
-      // Get a output writer to write the response message into the network socket
       PrintWriter out = response.getWriter();
 
+      // this function is used many times. It is used to insert a piece of html code.
       request.getRequestDispatcher("ecommerce-header.html").include(request, response);
-      // print login links in between
+      // print login links in between, depending on where user is logged in
       HttpSession session=request.getSession(false);  
-      if(session==null){  
+      if(session==null){  // user has not logged in
          out.println("<div id='wrapper'>");
          out.println("<a href='login.html'>Login</a> |  ");
          out.println("<a href='signup.html'>Sign Up</a> |  ");
@@ -27,7 +25,7 @@ public class SearchQueryServlet extends HttpServlet {
          out.println("<hr> ");
          out.println("</div>");
       }  
-      else
+      else // user has logged in
       {
          out.println("<div id='wrapper'>");
          out.println("<p>Welcome, " + session.getAttribute("name") + "</p>");
@@ -36,21 +34,19 @@ public class SearchQueryServlet extends HttpServlet {
          out.println("<hr> ");
          out.println("</div>");
       }
+      // this function is used many times. It is used to insert a piece of html code.
       request.getRequestDispatcher("ecommerce-after-header-before-cards.html").include(request, response);
 
       try (
-         //Allocate a database 'Connection' object
          Connection conn = DriverManager.getConnection(
                "jdbc:mysql://localhost:3306/newecommerce?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC",
-               "myuser", "xxxx");   // For MySQL
-               // The format is: "jdbc:mysql://hostname:port/databaseName", "username", "password"
+               "myuser", "xxxx");
 
-         //Allocate a 'Statement' object in the Connection
          Statement stmt = conn.createStatement();
       ) {
-         //Execute a SQL SELECT query
          String sqlStr = "SELECT * FROM products";
 
+         // add conditions for category
          String categoryParam = request.getParameter("category");
          if (categoryParam != null)
          { 
@@ -60,6 +56,7 @@ public class SearchQueryServlet extends HttpServlet {
                "AND type = '" + type + "'";
          }
 
+         // add conditions for brand
          String brandParam = request.getParameter("brand");
          if (brandParam != null)
          {
@@ -77,7 +74,7 @@ public class SearchQueryServlet extends HttpServlet {
          
          ResultSet rset = stmt.executeQuery(sqlStr);  // Send the query to the server
 
-         // Print the cards (middle of the right column)
+         // Print the results (in card form)
          int count = 0;
          while(rset.next()) {
             int product_id = rset.getInt("id");
@@ -85,13 +82,13 @@ public class SearchQueryServlet extends HttpServlet {
             String brand = rset.getString("brand");
             String description = rset.getString("description");
             float price = rset.getFloat("price");
-            if (count % 4 == 0) // print <tr>
+            if (count % 4 == 0) // 4 products in a row
             {
                out.println("<tr>");
             }
             // Print a card <p>...</p> for each record
             PrintCard(out, product_id, image_src, brand, description, price);
-            if (count % 4 == 3) // print <tr/>
+            if (count % 4 == 3) // 4 products in a row
             {
                out.println("</tr>");
             }
@@ -103,16 +100,18 @@ public class SearchQueryServlet extends HttpServlet {
          ex.printStackTrace();
       } 
  
+      // this function is used many times. It is used to insert a piece of html code.
       request.getRequestDispatcher("ecommerce-after-cards.html").include(request, response);
       out.close();
    }
 
-   // The new doPost() runs the doGet() too
    @Override
    public void doPost (HttpServletRequest request, HttpServletResponse response)
                    throws ServletException, IOException {
-      doGet(request, response);  // Re-direct POST request to doGet()
+      doGet(request, response);
    }
+
+   // the function used to print one product
    private void PrintCard(PrintWriter out, int product_id, String image_src, String brand, String description, float price)
    {
       out.println("<td>");
