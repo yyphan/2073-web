@@ -15,6 +15,8 @@ public class SearchQueryServlet extends HttpServlet {
       response.setContentType("text/html");
       // Get a output writer to write the response message into the network socket
       PrintWriter out = response.getWriter();
+
+      request.getRequestDispatcher("link.html").include(request, response); 
       // Print everything before the right column
       PrintBefore(out);
 
