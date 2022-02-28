@@ -7,6 +7,27 @@
   <meta charset='utf-8' />
   <link rel='stylesheet' href='color.css'>
   <link rel='stylesheet' href='ecommerce.css'>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous">
+</script>
+  <script>
+    $(document).on('click', '.add-to-cart', function(){
+      product_id = $(this).attr('id');
+      $.ajax({
+        type: 'POST',
+        url: 'addtocart',
+        data: {
+          'product_id': product_id
+        },
+        success: function(data)
+        {
+          console.log(data);
+        }
+      })
+    })
+  </script>
 </head>
 
 
@@ -65,6 +86,7 @@
             <div class='container'>
             <h4><b>HOLBEIN</b></h4> 
             <p id='explaintxt'>Artist Acrylic Ink 100ml Colorless</p> 
+            <input type='button' class='add-to-cart' id='1001' value='Add to Cart'>
         
             </div>
             </div>
