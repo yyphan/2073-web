@@ -29,6 +29,8 @@ public class SignupServlet extends HttpServlet {
                 throw new Exception("Email exists");
             }
 
+            if (email == "" || name == "" || password == "") throw new Exception("All fields must be filled");
+
             String sqlStr = "INSERT INTO users (email, name, password) VALUES ('" 
                 + email + "', '" 
                 + name + "', '" 
@@ -38,11 +40,11 @@ public class SignupServlet extends HttpServlet {
             stmt.executeUpdate(sqlStr);
             
             out.print("You are successfully registered! Now please log in.");  
+            out.print("<a href='login.html'>Login</a>"); 
             out.print("<hr>");
-            request.getRequestDispatcher("link.html").include(request, response); 
         } catch (Exception ex) {
+            request.getRequestDispatcher("signup.html").include(request, response); 
             out.println("<p>Error: " + ex.getMessage() + "</p>");
-            out.println("<p>Check Tomcat console for details.</p>");
             ex.printStackTrace();
         }
             
