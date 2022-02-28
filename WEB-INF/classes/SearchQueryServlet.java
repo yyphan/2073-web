@@ -80,6 +80,7 @@ public class SearchQueryServlet extends HttpServlet {
          // Print the cards (middle of the right column)
          int count = 0;
          while(rset.next()) {
+            int product_id = rset.getInt("id");
             String image_src = rset.getString("image_src");
             String brand = rset.getString("brand");
             String description = rset.getString("description");
@@ -89,7 +90,7 @@ public class SearchQueryServlet extends HttpServlet {
                out.println("<tr>");
             }
             // Print a card <p>...</p> for each record
-            PrintCard(out, image_src, brand, description, price);
+            PrintCard(out, product_id, image_src, brand, description, price);
             if (count % 4 == 3) // print <tr/>
             {
                out.println("</tr>");
@@ -112,7 +113,7 @@ public class SearchQueryServlet extends HttpServlet {
                    throws ServletException, IOException {
       doGet(request, response);  // Re-direct POST request to doGet()
    }
-   private void PrintCard(PrintWriter out, String image_src, String brand, String description, float price)
+   private void PrintCard(PrintWriter out, int product_id, String image_src, String brand, String description, float price)
    {
       out.println("<td>");
       out.println("<div class='card'>");
@@ -121,6 +122,7 @@ public class SearchQueryServlet extends HttpServlet {
       out.println("<h4><b>" + brand + "</b></h4> ");
       out.println("<p id='explaintxt'>" + description + "</p> ");
       out.println("<p id='explaintxt'><strong>SGD " + price + "<strong></p> ");
+      out.println("<input type='button' class='add-to-cart' id='" + product_id + "' value='Add to Cart'>");
       out.println("</div>");
       out.println("</div>");
       out.println("</td>");

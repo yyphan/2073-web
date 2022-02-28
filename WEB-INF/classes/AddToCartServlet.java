@@ -1,5 +1,4 @@
 import java.io.*;
-import java.sql.*;
 import jakarta.servlet.*;            // Tomcat 10
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -24,11 +23,7 @@ public class AddToCartServlet extends HttpServlet {
                 // add the product if not added in cart
                 session.setAttribute(product_id, 1);
             }
-        }  
-        else{  
-            out.print("Please login first");  
-            request.getRequestDispatcher("login.html").include(request, response);  
-        }  
+        } 
         out.close();  
     }
 }
