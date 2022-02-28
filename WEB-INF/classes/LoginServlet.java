@@ -10,7 +10,6 @@ public class LoginServlet extends HttpServlet {
                     throws ServletException, IOException {  
         response.setContentType("text/html");  
         PrintWriter out=response.getWriter();  
-        request.getRequestDispatcher("link.html").include(request, response);  
 
         try (
             Connection conn = DriverManager.getConnection(
@@ -28,6 +27,7 @@ public class LoginServlet extends HttpServlet {
 
             if (!rset.next())
             {
+                request.getRequestDispatcher("login.html").include(request, response);  
                 throw new Exception("Sorry, email does not exist. Please sign up or check again.");
             }
             else
@@ -37,19 +37,19 @@ public class LoginServlet extends HttpServlet {
                 int user_id = rset.getInt("id");
                 if (password.equals(passwordInDB))
                 {
-                    out.print("Welcome, "+name);  
                     HttpSession session=request.getSession();  
                     session.setAttribute("name",name); 
                     session.setAttribute("user_id",user_id); 
+                    request.getRequestDispatcher("ecommercequery").forward(request, response);
                 }
                 else
                 {
+                    request.getRequestDispatcher("login.html").include(request, response);  
                     throw new Exception("Sorry, password incorrect. Please try again.");
                 }
             }
         } catch (Exception ex) {
             out.println("<p>Error: " + ex.getMessage() + "</p>");
-            out.println("<p>Check Tomcat console for details.</p>");
             ex.printStackTrace();
         }
 
