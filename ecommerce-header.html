@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Yet Another E-shop</title>
+  <meta charset='utf-8' />
+  <link rel='stylesheet' href='color.css'>
+  <link rel='stylesheet' href='ecommerce.css'>
+  <script
+    src='https://code.jquery.com/jquery-3.6.0.min.js'
+    integrity='sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=''
+    crossorigin='anonymous'>
+  </script>
+  <script>
+    $(document).on('click', '.add-to-cart', function(){
+      product_id = $(this).attr('id');
+      $.ajax({
+        type: 'POST',
+        url: 'addtocart',
+        data: {
+          'product_id': product_id
+        }
+      })
+    })
+  </script>
+</head>
+
+
+<body>

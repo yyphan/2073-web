@@ -16,9 +16,27 @@ public class SearchQueryServlet extends HttpServlet {
       // Get a output writer to write the response message into the network socket
       PrintWriter out = response.getWriter();
 
-      request.getRequestDispatcher("link.html").include(request, response); 
-      // Print everything before the right column
-      PrintBefore(out);
+      request.getRequestDispatcher("ecommerce-header.html").include(request, response);
+      // print login links in between
+      HttpSession session=request.getSession(false);  
+      if(session==null){  
+         out.println("<div id='wrapper'>");
+         out.println("<a href='login.html'>Login</a> |  ");
+         out.println("<a href='signup.html'>Sign Up</a> |  ");
+         out.println("<a href='seecart'>Cart</a>  ");
+         out.println("<hr> ");
+         out.println("</div>");
+      }  
+      else
+      {
+         out.println("<div id='wrapper'>");
+         out.println("<p>Welcome, " + session.getAttribute("name") + "</p>");
+         out.println("<a href='logout'>Log Out</a> |  ");
+         out.println("<a href='seecart'>Cart</a>  ");
+         out.println("<hr> ");
+         out.println("</div>");
+      }
+      request.getRequestDispatcher("ecommerce-after-header-before-cards.html").include(request, response);
 
       try (
          //Allocate a database 'Connection' object
@@ -30,16 +48,6 @@ public class SearchQueryServlet extends HttpServlet {
          //Allocate a 'Statement' object in the Connection
          Statement stmt = conn.createStatement();
       ) {
-         // Print the start of the right column
-         out.println("<div id='rightcolumn'>");
-         out.println("<div class='content'> ");
-            out.println("<h2>WELCOME TO OUR SHOP</h2>");
-            out.println("<p id='explaintxt'>The first Friday night each month at JavaJam is a special night.");
-            out.println("Join us from 8pm to 11pm for some music you won't want to miss.</p>");
-         out.println("</div>");
-         out.println("<div id='righttxt'>");
-            out.println("<table>");
-
          //Execute a SQL SELECT query
          String sqlStr = "SELECT * FROM products";
 
@@ -88,17 +96,13 @@ public class SearchQueryServlet extends HttpServlet {
             }
             count++;
          }
-         // Print the end of the right column
-         out.println("</table>");
-         out.println("</div>");
       } catch(Exception ex) {
          out.println("<p>Error: " + ex.getMessage() + "</p>");
          out.println("<p>Check Tomcat console for details.</p>");
          ex.printStackTrace();
       } 
  
-      // Print everything after the right column
-      PrintAfter(out);
+      request.getRequestDispatcher("ecommerce-after-cards.html").include(request, response);
       out.close();
    }
 
@@ -108,45 +112,6 @@ public class SearchQueryServlet extends HttpServlet {
                    throws ServletException, IOException {
       doGet(request, response);  // Re-direct POST request to doGet()
    }
-
-   private void PrintBefore(PrintWriter out)
-   {
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("<head>");
-      out.println("<title>Yet Another E-shop</title>");
-      out.println("<meta charset='utf-8' />");
-      out.println("<link rel='stylesheet' href='color.css'>");
-      out.println("<link rel='stylesheet' href='ecommerce.css'>");
-      out.println("</head>");
-      out.println("<body>");
-      out.println("<div id='wrapper'>");
-      out.println("<header>");
-         out.println("<h1><img src='image/wrapper.jpg' width='100%' height='150' alt='Our New E-shop'></h1>");
-      out.println("</header>");
-      out.println("<div id='leftcolumn'>");
-         out.println("<nav>");
-         out.println("<form method='post' action='ecommercequery'>");
-            out.println("<ul>");
-            out.println("<b>ACRYLIC</b>");
-            out.println("<li><input type='radio' name='category' value='Acrylic-Ink' />ink</li>  ");
-            out.println("<b>OIL</b>  ");
-            out.println("<li><input type='radio' name='category' value='Oil-Paint' />paint</li>   ");
-            out.println("<b>WATERCOLOR</b>    ");
-            out.println("<li><input type='radio' name='category' value='Watercolor-Ink' />ink</li>");
-            out.println("<hr>");
-            out.println("<b>Brand</b>    ");
-            out.println("<li><input type='radio' name='brand' value='HOLBEIN' />HOLBEIN</li>");
-            out.println("<li><input type='radio' name='brand' value='SCHMINCKE' />SCHMINCKE</li>");
-            out.println("<hr>");
-            out.println("<li><input type='submit' value='Search' /></li>");
-            out.println("<li><input type='reset' /></li>");
-            out.println("</ul>");
-         out.println("</form>");
-         out.println("</nav>	");
-      out.println("</div>");
-   }
-
    private void PrintCard(PrintWriter out, String image_src, String brand, String description, float price)
    {
       out.println("<td>");
@@ -159,10 +124,5 @@ public class SearchQueryServlet extends HttpServlet {
       out.println("</div>");
       out.println("</div>");
       out.println("</td>");
-   }
-
-   private void PrintAfter(PrintWriter out)
-   {
-      out.println("<div></body></html>");
    }
 }
