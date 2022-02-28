@@ -132,9 +132,11 @@ public class SearchQueryServlet extends HttpServlet {
             out.println("<li><input type='radio' name='category' value='Oil-Paint' />paint</li>   ");
             out.println("<b>WATERCOLOR</b>    ");
             out.println("<li><input type='radio' name='category' value='Watercolor-Ink' />ink</li>");
+            out.println("<hr>");
             out.println("<b>Brand</b>    ");
             out.println("<li><input type='radio' name='brand' value='HOLBEIN' />HOLBEIN</li>");
             out.println("<li><input type='radio' name='brand' value='SCHMINCKE' />SCHMINCKE</li>");
+            out.println("<hr>");
             out.println("<li><input type='submit' value='Search' /></li>");
             out.println("<li><input type='reset' /></li>");
             out.println("</ul>");

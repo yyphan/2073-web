@@ -4,6 +4,10 @@ ul {
     list-style-image:none;
 }
 
+hr {
+    margin-right: 30px;
+}
+
 header { 
     background-color: #f8f8ff;             
     height: 150px;
