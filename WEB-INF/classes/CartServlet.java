@@ -34,6 +34,9 @@ public class CartServlet extends HttpServlet {
                 ResultSet rset = stmt.executeQuery(sqlStr);
                 out.println("<table>");
                 out.println("<tr>");
+                // display product image in cart
+                out.println("<th>Product</th>");
+
                 out.println("<th>Product Name</th>");
                 out.println("<th>Quantity</th>");
                 out.println("<th>Total Price</th>");
@@ -46,12 +49,18 @@ public class CartServlet extends HttpServlet {
                     // if the product with that id was added in cart
                     if (session.getAttribute(idStr) != null)
                     {
+                        String product_img = rset.getString("image_src");
+
+
                         String description = rset.getString("description");
                         float singlePrice = rset.getFloat("price");
                         int count = ((Integer)session.getAttribute(idStr)).intValue();
                         float totalPrice = singlePrice * count;
                         // display the product
                         out.println("<tr>");
+                        out.println("<td><img src=" + product_img + " width = 50 height= 60></img></td>");
+
+
                         out.println("<td>" + description + "</td>");
                         out.println("<td>" + count + "</td>");
                         out.println("<td>" + totalPrice + "</td>");

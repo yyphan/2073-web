@@ -18,7 +18,7 @@ public class SearchQueryServlet extends HttpServlet {
       // print login links in between, depending on where user is logged in
       HttpSession session=request.getSession(false);  
       if(session==null){  // user has not logged in
-         out.println("<div id='wrapper'>");
+         out.println("<div id='headnevigation'>");
          out.println("<a href='login.html'>Login</a> |  ");
          out.println("<a href='signup.html'>Sign Up</a> |  ");
          out.println("<a href='seecart'>Cart</a>  ");

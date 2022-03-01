@@ -17,19 +17,26 @@ header {
 
 #wrapper { 
     margin: auto;
-    margin-left: 150px;
-    margin-right: 150px;
+    margin-left: 200px;
+    margin-right: 200px;
+} 
+
+#headnevigation { 
+    margin: auto;
+    margin-left: 200px;
+    margin-right: 200px;
+    background-color: #f1f1f1; 
 } 
 
 #leftcolumn { 
     float: left;
     width: 200px;
-    height: 700px;
+    height: 1500px;
     background-color: #f1f1f1; 	  			 
 }
 
 #rightcolumn { 
-    margin-left: 200px;
+    margin-left: 220px;
     height: 500px;
     background-color: #ffffff; 
 } 
@@ -51,4 +58,5 @@ tr img{
 #explaintxt {
     font-size: 0.95em;
     color: #3a3a3a;
+
 }
