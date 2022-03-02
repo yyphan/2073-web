@@ -2,23 +2,141 @@
 <html>
 
 <head>
-	<style>
-input {
-  width: 100%;
+<style>
+
+body, input, button {
+  font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  outline: none;
+}
+
+p {
+	text-align: center; 
+	color: red;
+}
+
+.main-container {
+  max-width: 900px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: 50px;
+
+}
+
+.form-container {
+  max-width: 450px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.form-body {
+  background-color: #a04683;
+  padding: 50px;
+  color: #ffffff;
+  border-radius: 3px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.title {
+  margin: 0;
+  text-align: center;
+}
+
+.the-form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.the-form label {
+  margin-bottom: 5px;
+  color: #e6e6e6;
+  font-weight: bold;
+}
+
+.the-form [type="text"], .the-form [type="password"] {
+  padding: 15px;
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  margin-bottom: 15px;
+  transition: background .3s;
+  color: #e6e6e6;
+}
+
+.the-form [type="text"]::placeholder, .the-form [type="password"]::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.the-form [type="text"]:hover, .the-form [type="password"]:hover {
+  opacity: .9;
+}
+
+.the-form [type="text"]:focus, .the-form [type="password"]:focus {
+  background: #ffffff;
+  color: #222222;
+}
+
+.the-form [type="text"]:focus::placeholder, .the-form [type="password"]:focus::placeholder {
+  color: #ffffff;
+}
+
+.the-form [type="submit"] {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  font-size: 20px;
+  border-radius: 3px;
+  margin-top: 20px;
+  color: black;
+}
+
+.the-form [type="submit"]:hover {
+  opacity: .9;
+}
+
+.form-footer div {
+  text-align: center;
+  padding: 25px 20px;
+  font-size: 18px;
+  color: #000000;
+}
+
+.form-footer div a {
+  color: #a04683;
 }
 </style>
 </head>
 
-
-
-
 <body>
-<form action="login" method="post" >  
-    Email:<input type="text" name="email"><br>  
-    Password:<input type="password" name="password"><br>  
-    <input type="submit" value="login">  
-    <span> Or </span><a href="signup.html">Sign Up</a>
-</form>  
+<div class="main-container">
+        <div class="form-container">
+            <div class="form-body">
+                <h2 class="title">LOGIN</h2>
+
+                <form action="login" class="the-form" method="post">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" placeholder="Enter your email"><br>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Enter your password"><br>
+                    <input type="submit" value="login">
+                </form>
+            </div>
+            <div class="form-footer">
+                <div>
+                    <span>Don't have an account?</span> <a href="signup.html">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
