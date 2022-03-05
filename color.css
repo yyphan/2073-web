@@ -18,7 +18,7 @@ h4 {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   margin: 10px;
-  height: 420px;
+  height: 460px;
   width: 235px;
 }
 
@@ -36,3 +36,34 @@ h4 {
 img {
   border-radius: 5px 5px 0 0;
 }
+
+.btnsearch {
+  background: #a04683;
+  border: 0px solid rgba(0, 0, 0, 0.1);
+  font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 16px;
+  border-radius: 3px;
+  margin-right: -10px;
+  color: white;
+  width: 160px;
+  height: 40px;
+}
+.add-to-cart {
+  background: white;
+  border: 1px solid #a04683;
+  font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 16px;
+  border-radius: 3px; 
+  color: #a04683;
+  width: 200px;
+  height: 40px;
+  margin-bottom: 5px;
+}
+
+.add-to-cart:hover {
+  background: #a04683;
+  color: white;
+}
+
+
+

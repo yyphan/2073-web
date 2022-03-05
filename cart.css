@@ -1,0 +1,152 @@
+#headnevigation{ 
+    margin:0 auto;
+    background-color: #f1f1f1; 
+    height: 50px;
+	border-radius: 5px;
+    text-align: right;
+    width: 70%;
+} 
+#headnevigation a {
+  color: #a04683;
+  text-decoration: none; 
+  font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  outline: none;
+  font-size: 25px;
+  margin: auto;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px 0px 0px 10px;
+  vertical-align: middle;
+
+}
+
+
+body{
+ background-color: #ffffff;
+ height: 100vh; 
+ justify-content: center; 
+ align-items: center;
+}
+
+.Cart-Container{
+ width: 70%;
+ height: 85%;
+ margin:0 auto;
+ margin-top: 20px;
+ background-color: #f1f1f1;
+ border-radius: 5px;
+ box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.Header{
+ color: #ffffff; 
+ margin: auto; 
+ width: 90%; 
+ height: 15%; 
+ display: flex; 
+ justify-content: space-between; 
+ align-items: center;
+}
+
+.Heading{
+ color: #3a3a3a; 
+ font-size: 20px; 
+ font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif; 
+ font-weight: 700; 
+ text-align: center;
+}
+
+.Action{
+ font-size: 14px;
+ font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+ outline: none;
+ font-weight: 600;
+ color: #E44C4C;
+ cursor: pointer;
+ border-bottom: 1px solid #E44C4C;
+}
+
+.Cart-Items{
+ margin: auto; 
+ width: 90%; 
+ height: 20%; 
+ display: flex; 
+ justify-content: space-between; 
+ align-items: center;
+}
+
+.image-box{
+ width: 20%; 
+}
+
+.about{
+ height: 100%;
+ width: 60%;
+}
+
+.title{
+ color: #595757; 
+ padding-top: 5px; 
+ line-height: 10px; 
+ font-size: 18px; 
+ font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+ font-weight: 500;
+}
+
+.subtitle{
+ color: #595757; 
+ line-height: 10px; 
+ font-size: 20px; 
+ font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif; 
+ font-weight: 600;
+}
+.price{
+ height: 100%;
+ width: 30%;
+ text-align: right;
+}
+
+.amount{
+ color: #595757; 
+ padding-top: 5px; 
+ font-size: 20px; 
+ font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif; 
+ font-weight: 800;
+}
+
+.save{
+ color: #a04683; 
+ padding-top: 10px; 
+ font-size: 20px; 
+ font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif; 
+ font-weight: 600;
+}
+
+.remove{
+ color: #a04683; 
+ padding-top: 5px;
+ font-size: 24px; 
+ font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;  
+ font-weight: 1500;
+}
+
+.counter{
+ width: 15%;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.count{
+ color: #595757; 
+ font-size: 16px; 
+ font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif; 
+ font-weight: 900;
+ margin-top: 30px;
+}
+
+
+
+
+
+

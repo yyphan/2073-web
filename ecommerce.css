@@ -25,29 +25,57 @@ header {
     margin: auto;
     margin-left: 200px;
     margin-right: 200px;
-    background-color: #a04683; 
+    background-color: #f1f1f1; 
     height: 50px;
-
+    border-radius: 5px;
+    text-align: right;
+} 
+#headnevigationafterlogin{ 
+    margin: auto;
+    margin-left: 200px;
+    margin-right: 200px;
+    background-color: #f1f1f1; 
+    height: 50px;
+    border-radius: 5px;
     text-align: right;
 } 
 #headnevigation a {
-  color: #ffffff;
+  color: #a04683;
   text-decoration: none; 
   font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
   outline: none;
-  font-size: 20px;
+  font-size: 25px;
   margin: auto;
   margin-left: 20px;
   margin-right: 20px;
   padding: 10px 0px 0px 10px;
-  vertical-align: middle;
-
+  text-align: right;
+  vertical-align: middle
+ 
+}
+#headnevigationafterlogin a {
+  color: #a04683;
+  text-decoration: none; 
+  font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  outline: none;
+  font-size: 25px;
+  margin: auto;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px 0px 0px 10px;
+ 
+ 
+}
+p {
+  font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  color: #b38d8d;
+  font-size: 30px;  
 }
 
 #leftcolumn { 
     float: left;
     width: 200px;
-    height: 1500px;
+    height: 1700px;
     background-color: #f1f1f1; 	  			 
 }
 
@@ -77,3 +105,24 @@ tr img{
     color: #3a3a3a;
 
 }
+
+ul {
+  list-style-type: none;
+  margin: 25px 25px;
+  padding: 0;
+  color: #3a3a3a;
+}
+
+ul.b {
+  font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  color: #3a3a3a;
+  margin-top: 5px; 
+}
+
+li {
+  font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  color: #595757;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+

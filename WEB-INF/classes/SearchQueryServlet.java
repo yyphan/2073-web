@@ -19,19 +19,20 @@ public class SearchQueryServlet extends HttpServlet {
       HttpSession session=request.getSession(false);  
       if(session==null){  // user has not logged in
          out.println("<div id='headnevigation'>");
-         out.println("<a href='login.html'>Login</a> |  ");
-         out.println("<a href='signup.html'>Sign Up</a> |  ");
-         out.println("<a href='seecart'>Cart</a>  ");
-         out.println("<hr> ");
+         out.println("<a href='login.html'>Login</a>");
+         out.println("<a href='signup.html'>Sign Up</a>");
+         out.println("<a href='seecart'>Cart</a>");
+         //out.println("<hr> ");
          out.println("</div>");
       }  
       else // user has logged in
       {
-         out.println("<div id='wrapper'>");
-         out.println("<p>Welcome, " + session.getAttribute("name") + "</p>");
-         out.println("<a href='logout'>Log Out</a> |  ");
-         out.println("<a href='seecart'>Cart</a>  ");
-         out.println("<hr> ");
+         out.println("<div id='headnevigationafterlogin'>");
+         out.println("<p>Welcome, " + session.getAttribute("name"));
+         out.println("<a href='logout'>Log Out</a>");
+         out.println("<a href='seecart'>Cart</a>");
+         out.println("</p>");
+         //out.println("<hr> ");
          out.println("</div>");
       }
       // this function is used many times. It is used to insert a piece of html code.
@@ -71,7 +72,7 @@ public class SearchQueryServlet extends HttpServlet {
 
             sqlStr += " brand = '" + brandParam + "'";
          }
-         
+
          ResultSet rset = stmt.executeQuery(sqlStr);  // Send the query to the server
 
          // Print the results (in card form)

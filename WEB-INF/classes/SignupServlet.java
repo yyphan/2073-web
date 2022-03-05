@@ -42,9 +42,25 @@ public class SignupServlet extends HttpServlet {
 
             stmt.executeUpdate(sqlStr);
             
-            out.print("You are successfully registered! Now please log in.");  
-            out.print("<a href='login.html'>Login</a>"); 
-            out.print("<hr>");
+
+            out.println("<!DOCTYPE html>"); 
+            out.println("<html>");
+            out.println("<link rel='stylesheet'  href='signsuccess.css'>");
+            out.println("<div id='headnevigation'> ");
+            out.println("<a href='login.html'>Login</a>"); 
+            out.println("</div>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<div class='Cart-Container'>");
+
+            out.println("<div class='Header'>");
+            out.println("<h3 class='Heading'>You are successfully registered! Now please log in.</h3>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</body>");
+           //out.print("You are successfully registered! Now please log in.");  
+            //out.print("<a href='login.html'>Login</a>"); 
+            //out.print("<hr>");
         } catch (Exception ex) {
             // this function is used many times. It is used to insert a piece of html code.
             request.getRequestDispatcher("signup.html").include(request, response); 

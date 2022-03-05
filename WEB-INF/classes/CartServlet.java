@@ -13,13 +13,27 @@ public class CartServlet extends HttpServlet {
           
         HttpSession session=request.getSession(false);  
         if(session==null){  // if not logged in
-            out.print("Please login first");  
             request.getRequestDispatcher("login.html").include(request, response); 
+            out.println("<p style=' text-align: center; color: red;'> Please login first</p>");
         }  
-        else{   
-            String name=(String)session.getAttribute("name"); 
-            out.println("<p><a href='ecommercequery'>Home</a></p><hr>"); 
-            out.print("Hello, " + name + ". Welcome to Your Cart");  
+        else{  
+            out.println("<!DOCTYPE html>"); 
+            out.println("<html>");          
+            out.println("<head><title>Welcome to Your Cart</title>");
+            out.println("<link rel='stylesheet'  href='cart.css'>");
+            out.println("<div id='headnevigation'>  ");
+            out.println("<a href='ecommercequery'>Home</a>"); 
+            out.println("</div>");
+
+            //out.println("<p><a href='ecommercequery'>Home</a></p><hr>"); 
+            //String name=(String)session.getAttribute("name"); 
+            //out.print("Hello, " + name + ". Welcome to Your Cart");  
+
+            out.println("</head>");
+            out.println("<body>");
+            //out.println("<p><a href='ecommercequery'>Home</a></p><hr>"); 
+            //String name=(String)session.getAttribute("name"); 
+            //out.print("Hello, " + name + ". Welcome to Your Cart");  
 
             // display all added products in a table
             try (
@@ -31,16 +45,13 @@ public class CartServlet extends HttpServlet {
                 Statement stmt = conn.createStatement();
             ) {
                 String sqlStr = "SELECT * FROM products;";
-                ResultSet rset = stmt.executeQuery(sqlStr);
-                out.println("<table>");
-                out.println("<tr>");
-                // display product image in cart
-                out.println("<th>Product</th>");
+                ResultSet rset = stmt.executeQuery(sqlStr);              
 
-                out.println("<th>Product Name</th>");
-                out.println("<th>Quantity</th>");
-                out.println("<th>Total Price</th>");
-                out.println("</tr>");
+                out.println("<div class='Cart-Container'>");
+                out.println("<div class='Header'>");
+                out.println("<h3 class='Heading'>Shopping Cart</h3>");
+                out.println("</div>");
+
                 // loop through all products to see if any of them was added in cart
                 while (rset.next()) {
                     int id = rset.getInt("id");
@@ -51,29 +62,45 @@ public class CartServlet extends HttpServlet {
                     {
                         String product_img = rset.getString("image_src");
 
-
+                        String brand = rset.getString("brand");
                         String description = rset.getString("description");
                         float singlePrice = rset.getFloat("price");
                         int count = ((Integer)session.getAttribute(idStr)).intValue();
                         float totalPrice = singlePrice * count;
-                        // display the product
-                        out.println("<tr>");
-                        out.println("<td><img src=" + product_img + " width = 50 height= 60></img></td>");
 
+                        out.println("<div class='Cart-Items'>");
 
-                        out.println("<td>" + description + "</td>");
-                        out.println("<td>" + count + "</td>");
-                        out.println("<td>" + totalPrice + "</td>");
-                        out.println("</tr>");
+                        out.println("<div class='image-box'>");
+                        out.println("<img src=' " + product_img + " ' style='height: 100px; border-radius: 5px; margin-bottom: 10px;' />");
+                        out.println("</div>");
+
+                        out.println("<div class='about'>");
+                        out.println("<h1 class='title'>" + brand + "</h1>");
+                        out.println("<h3 class='subtitle'>" + description + "</h3>");
+                        out.println("<div class='count'> Count: " + count + "</div>");
+                        out.println("</div>");
+
+                        out.println("<div  class='price'>");
+                        out.println("<div  class='amount'>" + singlePrice + "</div>");
+                        out.println("<div  class='save'>Subtotal Price</div>");
+                        out.println("<div  class='remove'>" + totalPrice +"</div>");
+                        out.println("</div>");
+                      
+
+                        out.println("</div>");
+
                     }
                 }
 
-                out.println("</table>");
+                out.println("</div>");
+                out.println("</body>");
+                //out.println("</html>");
             } catch (Exception ex) {
                 out.println("<p>Error: " + ex.getMessage() + "</p>");
                 out.println("<p>Check Tomcat console for details.</p>");
                 ex.printStackTrace();
             }
+            out.println("</html>");
         }  
         out.close();  
     }  
