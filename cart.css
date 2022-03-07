@@ -3,7 +3,7 @@
     background-color: #f1f1f1; 
     height: 50px;
 	border-radius: 5px;
-    text-align: right;
+    text-align: left;
     width: 70%;
 } 
 #headnevigation a {
@@ -12,9 +12,7 @@
   font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
   outline: none;
   font-size: 25px;
-  margin: auto;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 50px;
   padding: 10px 0px 0px 10px;
   vertical-align: middle;
 
@@ -30,7 +28,7 @@ body{
 
 .Cart-Container{
  width: 70%;
- height: 85%;
+ height: 90%;
  margin:0 auto;
  margin-top: 20px;
  background-color: #f1f1f1;
@@ -42,7 +40,7 @@ body{
  color: #ffffff; 
  margin: auto; 
  width: 90%; 
- height: 15%; 
+ height: 10%; 
  display: flex; 
  justify-content: space-between; 
  align-items: center;
@@ -56,20 +54,10 @@ body{
  text-align: center;
 }
 
-.Action{
- font-size: 14px;
- font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
- outline: none;
- font-weight: 600;
- color: #E44C4C;
- cursor: pointer;
- border-bottom: 1px solid #E44C4C;
-}
-
 .Cart-Items{
  margin: auto; 
  width: 90%; 
- height: 20%; 
+ height: 18%; 
  display: flex; 
  justify-content: space-between; 
  align-items: center;
@@ -124,7 +112,7 @@ body{
 
 .remove{
  color: #a04683; 
- padding-top: 5px;
+ padding-top: 0px;
  font-size: 24px; 
  font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;  
  font-weight: 1500;
@@ -142,7 +130,7 @@ body{
  font-size: 16px; 
  font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif; 
  font-weight: 900;
- margin-top: 30px;
+ margin-top: 20px;
 }
 
 
